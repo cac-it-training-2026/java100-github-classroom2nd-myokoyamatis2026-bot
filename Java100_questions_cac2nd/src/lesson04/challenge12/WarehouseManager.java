@@ -99,9 +99,34 @@ public class WarehouseManager {
 
 		System.out.println("\n\nでした。直してきます...\n");
 
-
 		//ここに適切な値の挿入処理を記述する
+		//		for (int i = 0; i < wonderfulArray.length; i++) {
+		//			if (wonderfulArray[i] == 0) {
+		//				if (wonderfulArray[i] != 1) {
+		//					wonderfulArray[i] = 1;
+		//				} else if (wonderfulArray[i] != 2) {
+		//					wonderfulArray[i] = 2;
+		//				} else if (wonderfulArray[i] != 3) {
+		//					wonderfulArray[i] = 3;
+		//				} else if (wonderfulArray[i] != 4) {
+		//					wonderfulArray[i] = 4;
+		//				} else {
+		//					wonderfulArray[i] = 5;
+		//				}
+		//			}
+		//		}
+		int targetIndex = 0;//場所の特定
+		int totalPoint = 0;//合計
 
+		for (int i = 0; i < wonderfulArray.length; i++) {
+			if (wonderfulArray[i] == 0) {//どこにあるのか判断している
+				targetIndex = i;//場所を保存している
+			} else {
+				totalPoint += wonderfulArray[i];//それ以外の数の合計
+			}
+		}
+
+		wonderfulArray[targetIndex] = (15 - totalPoint);//0だった場所に対して=15(1～5の合計)-残っている数の合計
 
 		System.out.println("Yさん：");
 		System.out.println("直してきました。\n");
