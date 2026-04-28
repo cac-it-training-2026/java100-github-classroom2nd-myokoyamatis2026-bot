@@ -133,10 +133,10 @@ public class RobotMaker {
 		String menu = robot.makeEggDishes(flourNum, sugarNum, eggNum, butterNum);
 
 		// 出力
-		if (menu != null) {
-			System.out.println(menu + "が出来ました。");
-		} else {
+		if (menu == null) {
 			System.out.println("何も作れません。");
+		} else {
+			System.out.println(menu + "が出来ました。");
 		}
 	}
 }
