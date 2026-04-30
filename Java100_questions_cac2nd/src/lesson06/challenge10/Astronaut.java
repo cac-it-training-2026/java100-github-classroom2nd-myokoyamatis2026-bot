@@ -31,30 +31,40 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
+class Betalian {
+	private String item;
 
+	public String getItem() {
+		return item;
+	}
+
+	public void setItem(String item) {
+		if (item.length() > 5) {
+			item = item.substring(0, 5);
+		}
+		this.item = item;
+	}
+}
 //ここにBetalianクラスを記述する
-
 
 public class Astronaut {
 
-    public static void main(String[] args) throws IOException {
+	public static void main(String[] args) throws IOException {
 
-        System.out.print("β星人にアイテムを渡してください＞");
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        String present = br.readLine();
+		System.out.print("β星人にアイテムを渡してください＞");
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		String present = br.readLine();
 
+		Betalian betalian = new Betalian();
+		betalian.setItem(present);//ユーザー入力したアイテムをβ宇宙人に渡す
+		//ここに適切な処理を記述する
 
-        //ここに適切な処理を記述する
+		String item = null;
+		item = betalian.getItem();//β星人に保存されたアイテム名を取得して表示用に使う
+		//ここに適切な処理を記述する
 
-
-        String item = null;
-
-
-        //ここに適切な処理を記述する
-
-
-        System.out.println("\nβ星人：");
-        System.out.println("ありがとうベータ！");
-        System.out.println("この" + item + "大事にするベータ。");
-    }
+		System.out.println("\nβ星人：");
+		System.out.println("ありがとうベータ！");
+		System.out.println("この" + item + "大事にするベータ。");
+	}
 }
