@@ -37,60 +37,79 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 class Spaceship {
-    private int air;
-   //ここにフィールドを追加する。
+	private int air;
+	//ここにフィールドを追加する。
 
-    public int getAir() {
-        return air;
-    }
+	private int fuel;
 
-    public void setAir(int air) {
-        this.air = air;
-    }
+	public int getFuel() {
+		return fuel;
+	}
 
+	public void setFuel(int fuel) {
+		this.fuel = fuel;
+	}
 
-    //ここに適切な処理を記述する。
+	public int getAir() {
+		return air;
+	}
 
+	public void setAir(int air) {
+		this.air = air;
+	}
+
+	//オーバーロード
+	int consumingFuel() {//自動航行モード
+		int lightYears = fuel / 2 * 10;//現在の燃料の半分を使用、使用燃料×10＝航行距離
+		fuel -= fuel / 2;//使用した燃料分を減らす
+		return lightYears;
+	}
+
+	int consumingFuel(int consumingFuel) {//手動航行モード
+		int lightYears = consumingFuel * 10;//入力された燃料量を使用、使用燃料×10＝航行距離
+		fuel -= consumingFuel;//指定した燃料分を減らす
+		return lightYears;
+	}
+	//ここに適切な処理を記述する。
 
 }
 
 public class Astronaut {
 
-    public static void main(String[] args) throws IOException {
+	public static void main(String[] args) throws IOException {
 
-        System.out.print("空気を入れてください＞");
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        String airStr = br.readLine();
-        int air = Integer.parseInt(airStr);
+		System.out.print("空気を入れてください＞");
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		String airStr = br.readLine();
+		int air = Integer.parseInt(airStr);
 
-        System.out.print("燃料を入れてください＞");
-        String fuelStr = br.readLine();
-        int fuel = Integer.parseInt(fuelStr);
+		System.out.print("燃料を入れてください＞");
+		String fuelStr = br.readLine();
+		int fuel = Integer.parseInt(fuelStr);
 
-        Spaceship spaceship = new Spaceship();
-        spaceship.setAir(air);
+		Spaceship spaceship = new Spaceship();
+		spaceship.setAir(air);
+		spaceship.setFuel(fuel);
 
+		//ここでフィールドのfuelに値を設定する。
 
-        //ここでフィールドのfuelに値を設定する。
+		System.out.println("\n" + spaceship.getAir() + "リットルの空気が入りました。");
 
+		System.out.println("自動で航行します。");
 
-        System.out.println("\n"+spaceship.getAir() + "リットルの空気が入りました。");
+		int lightYears = spaceship.consumingFuel();
+		System.out.println("航行距離：" + lightYears + "光年");
+		//ここに適切な処理を記述する。
 
-        System.out.println("自動で航行します。");
+		System.out.println("燃料で航行します。");
+		System.out.print("使用燃料を入力してください＞");
+		String consumingFuelStr = br.readLine();
+		int consumingFuel = Integer.parseInt(consumingFuelStr);
 
+		lightYears = spaceship.consumingFuel(consumingFuel);
+		System.out.println("航行距離：" + lightYears + "光年");
+		//ここに適切な処理を記述する。
 
-        //ここに適切な処理を記述する。
-
-
-        System.out.println("燃料で航行します。");
-        System.out.print("使用燃料を入力してください＞");
-        String consumingFuelStr = br.readLine();
-        int consumingFuel = Integer.parseInt(consumingFuelStr);
-
-
-        //ここに適切な処理を記述する。
-
-
-    }
+	}
 
 }

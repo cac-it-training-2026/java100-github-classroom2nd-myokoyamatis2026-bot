@@ -95,21 +95,20 @@ public class WarehouseManager {
 
 		System.out.print("データ型を選んでください（1...文字、2...文字列、3...数値）＞");
 
+		String detaStr = br.readLine();
+		int deta = Integer.parseInt(detaStr);
 
 		//ここに入力処理を記述する。
-
 
 		System.out.print("\n要素数を選んでください（1...1個、2...2個、3...3個）＞");
 
-
+		String deta2Str = br.readLine();
+		int deta2 = Integer.parseInt(deta2Str);
 		//ここに入力処理を記述する。
-
 
 		boolean errFlag = false;
 
-
 		//ここに入力値の範囲チェック処理を記述する。
-
 
 		if (!errFlag) {
 			System.out.println("\nZ先輩：");
@@ -126,10 +125,52 @@ public class WarehouseManager {
 			String[] strArray = null;
 			int[] intArray = null;
 
-
 			//ここに入力値による分岐および配列要素数の確定、
 			//値の代入処理を記述する。
 
+			if (deta == 1) {
+				if (deta2 == 1) {
+					charArray = new char[1];
+					charArray[0] = 'a';
+				} else if (deta2 == 2) {
+					charArray = new char[2];
+					charArray[0] = 'a';
+					charArray[1] = 'b';
+				} else {
+					charArray = new char[3];
+					charArray[0] = 'a';
+					charArray[1] = 'b';
+					charArray[2] = 'c';
+				}
+			} else if (deta == 2) {
+				if (deta2 == 1) {
+					strArray = new String[1];
+					strArray[0] = "abc";
+				} else if (deta2 == 2) {
+					strArray = new String[2];
+					strArray[0] = "abc";
+					strArray[1] = "def";
+				} else {
+					strArray = new String[3];
+					strArray[0] = "abc";
+					strArray[1] = "def";
+					strArray[2] = "ghi";
+				}
+			} else {
+				if (deta2 == 1) {
+					intArray = new int[1];
+					intArray[0] = 1;
+				} else if (deta2 == 2) {
+					intArray = new int[2];
+					intArray[0] = 1;
+					intArray[1] = 2;
+				} else {
+					intArray = new int[3];
+					intArray[0] = 1;
+					intArray[1] = 2;
+					intArray[2] = 3;
+				}
+			}
 
 			System.out.println("Yさん：");
 			System.out.println("...出来ました。\n");
@@ -139,10 +180,15 @@ public class WarehouseManager {
 
 			System.out.println("Yさん：");
 
-
 			//ここに入力値による分岐および配列要素の表示処理を記述する。
 
-
+			if (deta == 1) {
+				System.out.println(charArray[charArray.length - 1]);
+			} else if (deta == 2) {
+				System.out.println(strArray[strArray.length - 1]);
+			} else {
+				System.out.println(intArray[intArray.length - 1]);
+			}
 			System.out.println("です。\n");
 
 			System.out.println("Z先輩：");
