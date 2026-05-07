@@ -48,33 +48,34 @@ import lesson09.challenge02.Nurserry.logic.NurserySchoolChild;
 
 public class NurserySchool {
 
-    public static void main(String[] args) throws IOException {
+	public static void main(String[] args) throws IOException {
 
-        Nurse nurse1 = new Nurse("保育太郎");
-        Nurse nurse2 = new Nurse("保育次郎");
-        Nurse nurse3 = new Nurse("保育三郎");
+		Nurse nurse1 = new Nurse("保育太郎");
+		Nurse nurse2 = new Nurse("保育次郎");
+		Nurse nurse3 = new Nurse("保育三郎");
 
-        System.out.println(nurse1.getName() + "が出勤しました。");
-        System.out.println(nurse2.getName() + "が出勤しました。");
-        System.out.println(nurse3.getName() + "が出勤しました。");
+		System.out.println(nurse1.getName() + "が出勤しました。");
+		System.out.println(nurse2.getName() + "が出勤しました。");
+		System.out.println(nurse3.getName() + "が出勤しました。");
 
-        NurserySchoolChild child1 = new NurserySchoolChild("園児①");
-        NurserySchoolChild child2 = new NurserySchoolChild("園児②");
-        NurserySchoolChild child3 = new NurserySchoolChild("園児③");
+		NurserySchoolChild child1 = new NurserySchoolChild("園児①");
+		NurserySchoolChild child2 = new NurserySchoolChild("園児②");
+		NurserySchoolChild child3 = new NurserySchoolChild("園児③");
 
-        System.out.println(child1.getName() + "が登園しました。");
-        System.out.println(child2.getName() + "が登園しました。");
-        System.out.println(child3.getName() + "が登園しました。");
+		System.out.println(child1.getName() + "が登園しました。");
+		System.out.println(child2.getName() + "が登園しました。");
+		System.out.println(child3.getName() + "が登園しました。");
 
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        System.out.print("\nいただいたケーキの数を入力してください＞");
-        String cakesStr = br.readLine();
-        int cakes = Integer.parseInt(cakesStr);
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		System.out.print("\nいただいたケーキの数を入力してください＞");
+		String cakesStr = br.readLine();
+		System.out.println("cakes入力完了：" + cakesStr);
+		int cakes = Integer.parseInt(cakesStr);
 
-        System.out.print("\n園児の人数を入力してください＞");
-        String childsStr = br.readLine();
-        int childs = Integer.parseInt(childsStr);
+		System.out.print("\n園児の人数を入力してください＞");
+		String childsStr = br.readLine();
+		int childs = Integer.parseInt(childsStr);
 
-        nurse1.divide(cakes, childs);
-    }
+		nurse1.divide(cakes, childs);
+	}
 }

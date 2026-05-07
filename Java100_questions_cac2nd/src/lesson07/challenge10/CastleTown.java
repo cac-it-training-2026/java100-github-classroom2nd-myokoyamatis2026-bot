@@ -24,7 +24,7 @@
 
 package lesson07.challenge10;
 
-abstract class Samurai {
+abstract class Samurai {//abstract class 抽象クラス
 
 	protected String name;
 
