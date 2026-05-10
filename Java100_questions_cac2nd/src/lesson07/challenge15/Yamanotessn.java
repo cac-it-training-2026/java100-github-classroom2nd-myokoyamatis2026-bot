@@ -14,7 +14,7 @@ public class Yamanotessn {
 
 	public static void main(String[] args) throws IOException {
 
-		// 山手線の駅名を配列に格納しておく
+		// 山手線の駅名を配列に格納しておく合計
 		String[] stations = { "品川", "大崎", "五反田", "目黒",
 				"恵比寿", "渋谷", "原宿", "代々木", "新宿", "新大久保", "高田馬場",
 				"目白", "池袋", "大塚", "巣鴨", "駒込", "田端", "西日暮里", "日暮里",
