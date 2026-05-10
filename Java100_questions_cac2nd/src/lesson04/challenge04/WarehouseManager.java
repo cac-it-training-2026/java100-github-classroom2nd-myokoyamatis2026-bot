@@ -41,22 +41,28 @@ package lesson04.challenge04;
 public class WarehouseManager {
 
 	public static void main(String[] args) {
-
+		int[] num = new int[5];
 
 		//ここに配列の宣言および値の代入処理を記述する（for文）
 
-
+		for (int i = 0; num.length > i; i++) {
+			num[i] = (int) (Math.random() * 10 % 5) + 1;
+		}
 		System.out.println("E主任：");
 		System.out.println("AB興産の荷物の検査結果を教えてください。\n");
 
 		System.out.println("Yさん：");
 		System.out.println("はい、");
 
-		boolean hitFlag = false;
-
+		boolean hitFlag = false;//boolean型は数字での判断ではない
+		for (int i = 0; num.length < i; i++) {
+			if (num[i] == 5) {
+				hitFlag = true;
+				System.out.println((i + 1) + "袋目");
+			}
+		}
 
 		//ここに要素の確認および何袋目かの出力処理を記述する
-
 
 		if (hitFlag) {
 			System.out.println("に入っていました。");

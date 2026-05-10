@@ -32,16 +32,26 @@ public class WarehouseManager {
 
 	public static void main(String[] args) {
 
-
+		int[] num = new int[5];
 		//ここに配列の宣言を記述する
-
 
 		int intputNum = 0;
 		boolean loopFlag = false;
 
-
 		//ここに重複チェックおよび値の代入処理を記述する
-
+		for (int i = 0; i < num.length; i++) {
+			do {
+				loopFlag = false;//中でも宣言をしないと使えない
+				intputNum = (int) (Math.random() * 10) % 5 + 1;
+				for (int j = 0; j < num.length; j++) {
+					if (num[j] == intputNum) {
+						loopFlag = true;
+						break;
+					}
+				}
+			} while (loopFlag);
+			num[i] = intputNum;
+		}
 
 		System.out.println("E主任：");
 		System.out.println("AB興産の荷物の検査結果を教えてください。\n");
@@ -49,10 +59,14 @@ public class WarehouseManager {
 		System.out.println("Yさん：");
 		System.out.println("はい、");
 
-
 		//ここに要素の確認および何袋目かの出力処理を記述する
 
-
+		for (int i = 0; i < num.length; i++) {
+			if (num[i] == 5) {
+				System.out.println((i + 1) + "袋目");
+				break;
+			}
+		}
 		System.out.println("に入っていました。");
 
 	}

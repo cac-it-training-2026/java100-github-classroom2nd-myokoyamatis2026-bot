@@ -39,35 +39,66 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
+class Gammalian {
 
+	private String item;
+	private boolean isGood;
+
+	public String getItem() {
+		return item;
+	}
+
+	public void setItem(String item) {
+		boolean isHit = false;
+		for (int i = 0; i < 10; i++) {
+			if (item.indexOf(Integer.toString(i)) != -1) {
+				isHit = true;
+				break;
+			}
+		}
+		if (isHit) {
+			isGood = true;
+		} else {
+			isGood = false;
+		}
+		this.item = item;
+	}
+
+	public boolean isGood() {
+		return isGood;
+	}
+
+	public void setGood(boolean isGood) {
+		this.isGood = isGood;
+	}
+}
 //ここにGammalianクラスを記述する
-
 
 public class Astronaut {
 
-    public static void main(String[] args) throws IOException {
+	public static void main(String[] args) throws IOException {
 
-        System.out.print("γ星人にアイテムを渡してください＞");
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        String present = br.readLine();
+		System.out.print("γ星人にアイテムを渡してください＞");
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		String present = br.readLine();
 
+		Gammalian gammalian = new Gammalian();
+		gammalian.setItem(present);
 
-        //ここに適切な処理を記述する
+		//ここに適切な処理を記述する
 
+		boolean isGood = false;
 
-        boolean isGood = false;
+		isGood = gammalian.isGood();
+		//ここに適切な処理を記述する
 
-
-        //ここに適切な処理を記述する
-
-
-        System.out.println("\nγ星人：");
-        if(isGood){
-             System.out.println("こんな良いものをもらっていいガンマか！");
-             System.out.println("ゆっくりしていくガンマ。");
-        } else{
-             System.out.println("...ありがとガンマ。");
-             System.out.println("ぶぶ漬けでもいかがガンマか？");
-        }
-    }
+		System.out.println("\nγ星人：");
+		if (isGood) {
+			System.out.println("こんな良いものをもらっていいガンマか！");
+			System.out.println("ゆっくりしていくガンマ。");
+		} else {
+			System.out.println("...ありがとガンマ。");
+			System.out.println("ぶぶ漬けでもいかがガンマか？");
+		}
+	}
 }

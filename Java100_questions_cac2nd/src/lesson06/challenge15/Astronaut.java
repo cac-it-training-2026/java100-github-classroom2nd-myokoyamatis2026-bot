@@ -36,39 +36,55 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
+class Spaceship {
+	private int damage;
 
+	public int getDamage() {
+		return damage;
+	}
+
+	public void setDamage(int damage) {
+		this.damage = damage;
+	}
+}
 //ここにSpaceshipクラスを記述する
 
-
+class Dock {//宇宙船のダメージを0にする
+	public void repairShip(Spaceship ship) {
+		ship.setDamage(0);
+	}
+}
 //ここにDockクラスを記述する
-
 
 public class Astronaut {
 
-    public static void main(String[] args) throws IOException {
+	public static void main(String[] args) throws IOException {
 
-        System.out.println("宇宙飛行士：");
-        System.out.println("やっとのことで帰ってきたけど、損傷がひどいな。");
-        System.out.println("修理に出そう。\n");
+		System.out.println("宇宙飛行士：");
+		System.out.println("やっとのことで帰ってきたけど、損傷がひどいな。");
+		System.out.println("修理に出そう。\n");
 
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        System.out.print("ダメージを入力してください＞");
-        String damageStr = br.readLine();
-        int damage = Integer.parseInt(damageStr);
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		System.out.print("ダメージを入力してください＞");
+		String damageStr = br.readLine();
+		int damage = Integer.parseInt(damageStr);
 
-        System.out.println("\n現在のダメージ：" + damage);
+		System.out.println("\n現在のダメージ：" + damage);
 
+		Spaceship spaceship = new Spaceship();
+		spaceship.setDamage(damage);//入力されたダメージ値を宇宙船に設定
 
-        //ここに適切な処理を記述する
+		Dock dock = new Dock();
+		dock.repairShip(spaceship);//宇宙船をドックに渡す
 
+		//ここに適切な処理を記述する
 
-        System.out.println("\n宇宙飛行士：");
-        System.out.println("よし！ドックから戻ってきたぞ！\n");
+		System.out.println("\n宇宙飛行士：");
+		System.out.println("よし！ドックから戻ってきたぞ！\n");
 
+		damage = spaceship.getDamage();//表示のため
+		//ここに適切な処理を記述する
 
-        //ここに適切な処理を記述する
-
-
-        System.out.println("現在のダメージ：" + damage);
-    }
+		System.out.println("現在のダメージ：" + damage);
+	}
 }
